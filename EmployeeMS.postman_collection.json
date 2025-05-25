@@ -1,0 +1,154 @@
+{
+	"info": {
+		"_postman_id": "cce1830e-0c53-4461-a823-b49712757aa5",
+		"name": "EmployeeMS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "38233161"
+	},
+	"item": [
+		{
+			"name": "DepartmentService",
+			"item": [
+				{
+					"name": "SaveDepartment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"departmentName\": \"Finance\",\r\n    \"departmentDescription\": \"Handles all financial operations\",\r\n    \"departmentCode\": \"FIN001\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/departments"
+					},
+					"response": []
+				},
+				{
+					"name": "GetDepartmentByCode",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:9191/api/departments/FIN001"
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Department",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/message"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "EmployeeService",
+			"item": [
+				{
+					"name": "SaveEmployee",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Ram\",\r\n    \"lastName\": \"Kumar\",\r\n    \"email\": \"ram.doe@example.com\",\r\n    \"departmentCode\": \"FIN001\",\r\n    \"organizationCode\": \"ORG123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8081/api/employees"
+					},
+					"response": []
+				},
+				{
+					"name": "GetEmployee",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8081/api/employees/2"
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Employee",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8081/users/message"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "OrganizationService",
+			"item": [
+				{
+					"name": "SaveOrganization",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"organizationName\": \"Tech Innovators\",\r\n    \"organizationDescription\": \"A company focusing on AI and cloud solutions.\",\r\n    \"organizationCode\": \"TI-001\",\r\n    \"createdDate\": \"2025-05-25T14:30:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8083/api/organizations"
+					},
+					"response": []
+				},
+				{
+					"name": "GetOrganization",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8083/api/organizations/TI-001"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "RefreshUsingactuator",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "http://localhost:8080/actuator/refresh"
+			},
+			"response": []
+		},
+		{
+			"name": "RefreshUsingactuator Bus",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "http://localhost:8080/actuator/busrefresh"
+			},
+			"response": []
+		}
+	]
+}
